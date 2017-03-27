@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration status="WARN">
+	<appenders>
+
+		<RollingFile name="file-log-server" fileName="C:/DROPBOX/VentaDeProductos.log" filePattern="C:/DROPBOX/VentaDeProductos.log-%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern ="%d{HH:mm:ss,SSS} %-5p %c %M - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+		
+	</appenders>
+	<loggers>
+		<Logger name="es.venta.productos" level="info" additivity="false">
+			<appender-ref ref="file-log-server" level="info"/>
+		</Logger>
+	</loggers>
+</configuration>
