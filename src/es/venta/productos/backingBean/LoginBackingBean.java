@@ -10,6 +10,13 @@ public class LoginBackingBean {
 	
 	private static final Logger log = LogManager.getLogger(LoginBackingBean.class.getName());
 
+	/**
+	 * Comprueba si el usuario existe
+	 * 
+	 * @param login
+	 * @param pass
+	 * @return
+	 */
 	public UserBean comprobarLogin(String login, String pass) {
 		log.error("Patata frita");
 		UserBean ret = null;

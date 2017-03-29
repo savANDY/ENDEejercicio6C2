@@ -1,0 +1,5 @@
+es.venta.productos.backingBean
+es.venta.productos.bbdd.access
+es.venta.productos.bbdd.beans
+es.venta.productos.bbdd.config
+es.venta.productos.bbdd.queries
