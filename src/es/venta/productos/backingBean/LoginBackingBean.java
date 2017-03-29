@@ -7,6 +7,7 @@ import es.venta.productos.bbdd.access.UserAccess;
 import es.venta.productos.bbdd.beans.UserBean;
 
 public class LoginBackingBean {
+	
 	private static final Logger log = LogManager.getLogger(LoginBackingBean.class.getName());
 
 	public UserBean comprobarLogin(String login, String pass) {
