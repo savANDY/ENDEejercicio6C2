@@ -18,7 +18,6 @@ public class LoginBackingBean {
 	 * @return
 	 */
 	public UserBean comprobarLogin(String login, String pass) {
-		log.error("Patata frita");
 		UserBean ret = null;
 		UserAccess userAccess = null;
 		try {
@@ -26,20 +25,25 @@ public class LoginBackingBean {
 
 			// Buscamos el usuario con este login
 			ret = userAccess.select(login);
-
+			
+			log.info("Usuario comprobado");
 			// Si es null, el usuario no existe y el metodo termina.
 			// Si es distinto de null comprobamos el pass
 			if (null != ret) {
 				boolean passOk = comprobarPass(ret, pass);
 
+				
 				// Si el passOk es false, devolvemos null
 				// Si es true todo está bien
 				if (passOk == false) {
+					log.info("Contraseña no coincide");
 					ret = null;
 				}
 			}
 		} catch (Exception e) {
+			log.error("Error al comprobar Usuario y Contraseña");
 		}
+		log.info("Usuario y Contraseña Comprobado");
 		return ret;
 	}
 

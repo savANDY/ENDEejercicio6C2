@@ -9,32 +9,43 @@
 
 <body>
 
-	<%@page import="java.util.List"%>
+	<%@page import="java.util.ArrayList"%>
+	<%@page import="es.venta.productos.bbdd.beans.*"%>
+	<%@page import="es.venta.productos.backingBean.*"%>
 
 	<%
 		// Recuperamos todos los productos
-
+		ArrayList<ProductoBean> productos = new ArrayList<ProductoBean>();
+		ProductosBackingBean productosBackingBean = new ProductosBackingBean();
+		productos = productosBackingBean.rellenarProductos();
+		
 		// Si es nul0....
-		if (null == null) {
+		if (productos == null) {
 			%>
 				La BBDD de Productos está vacía!!
 			<%
 		} else {
 	%>
 	<section>
-		<table>
-			<tr>
+		<table border="1">
+			<tr align="center">
 				<th>Nombre</th>
 				<th>Referencia</th>
 				<th>Precio</th>
 			</tr>
 			<%
-				for (ProductoBean prod : productos) {
+			
+			
+			for (int i = 0; i < productos.size(); i++) {
+			
+	
+			
+				//for (ProductoBean prod : productos) {
 			%>
 			<tr>
-				<td><%=prod.getNombre()%></td>
-				<td><%=prod.getReferencia()%></td>
-				<td><%=prod.getPrecio()%></td>
+				<td><%=productos.get(i).getNombre()%></td>
+				<td><%=productos.get(i).getReferencia()%></td>
+				<td><%=productos.get(i).getPrecio()%></td>
 			</tr>
 			<%
 				}

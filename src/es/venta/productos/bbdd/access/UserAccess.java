@@ -1,8 +1,14 @@
 package es.venta.productos.bbdd.access;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import es.venta.productos.backingBean.LoginBackingBean;
 import es.venta.productos.bbdd.beans.UserBean;
 
 public class UserAccess {
+	
+	private static final Logger log = LogManager.getLogger(LoginBackingBean.class.getName());
 
 	/**
 	 * 

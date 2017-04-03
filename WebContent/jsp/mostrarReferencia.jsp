@@ -9,16 +9,38 @@
 
 <body>
 
+	<%@page import="java.util.ArrayList"%>
+	<%@page import="es.venta.productos.bbdd.beans.*"%>
+	<%@page import="es.venta.productos.backingBean.*"%>
 	<%
 		// Sacamos los campos pasados por la request
 		String reference = ((String) request.getParameter("reference")).trim();
 
 		// Recuperamos todos los productos
 
-		if (null == null) {
-			%>
-				NO EXISTE ESE PRODUCTO!!
-			<%
+		ArrayList<ProductoBean> productos = new ArrayList<ProductoBean>();
+		ProductosBackingBean productosBackingBean = new ProductosBackingBean();
+		productos = productosBackingBean.rellenarProductos();
+
+		boolean encontrado = false;
+
+		if (productos == null) {
+	%>
+	La BBDD de Productos está vacía!!
+	<%
+		} else {
+			ProductoBean productoReferenciado = new ProductoBean();
+			for (int i = 0; i < productos.size(); i++) {
+				if (productos.get(i).getReferencia().equals(reference)) {
+					productoReferenciado = productos.get(i);
+					encontrado = true;
+				}
+			}
+
+			if (!encontrado) {
+	%>
+	NO EXISTE ESE PRODUCTO!!
+	<%
 		} else {
 	%>
 	<section>
@@ -29,13 +51,14 @@
 				<th>Precio</th>
 			</tr>
 			<tr>
-				<td><%=producto.getNombre()%></td>
-				<td><%=producto.getReferencia()%></td>
-				<td><%=producto.getPrecio()%></td>
+				<td><%=productoReferenciado.getNombre()%></td>
+				<td><%=productoReferenciado.getReferencia()%></td>
+				<td><%=productoReferenciado.getPrecio()%></td>
 			</tr>
 		</table>
 	</section>
 	<%
+		}
 		}
 	%>
 	<section>

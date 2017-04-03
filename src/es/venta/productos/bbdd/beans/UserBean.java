@@ -1,10 +1,13 @@
 package es.venta.productos.bbdd.beans;
 
+import java.util.List;
+
 public class UserBean {
 
 	private long id = 0;
 	private String login = null;
 	private String pass = null;
+	private List<PedidoBean> pedidos;
 
 	//-- Gets & Sets
 	
