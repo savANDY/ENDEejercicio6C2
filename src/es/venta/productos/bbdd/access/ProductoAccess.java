@@ -10,7 +10,7 @@ import es.venta.productos.bbdd.beans.ProductoBean;
 
 public class ProductoAccess {
 	
-	private static final Logger log = LogManager.getLogger(LoginBackingBean.class.getName());
+	private static final Logger log = LogManager.getLogger(ProductoAccess.class.getName());
 	
 	public ArrayList<ProductoBean> seleccionarProductos() {
 		

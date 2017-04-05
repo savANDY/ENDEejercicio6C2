@@ -8,7 +8,7 @@ import es.venta.productos.bbdd.beans.UserBean;
 
 public class UserAccess {
 	
-	private static final Logger log = LogManager.getLogger(LoginBackingBean.class.getName());
+	private static final Logger log = LogManager.getLogger(UserAccess.class.getName());
 
 	/**
 	 * 

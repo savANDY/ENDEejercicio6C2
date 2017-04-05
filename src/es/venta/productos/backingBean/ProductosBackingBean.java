@@ -20,7 +20,7 @@ import es.venta.productos.bbdd.beans.ProductoBean;
 
 public class ProductosBackingBean {
 
-	private static final Logger log = LogManager.getLogger(LoginBackingBean.class.getName());
+	private static final Logger log = LogManager.getLogger(ProductosBackingBean.class.getName());
 
 	/**
 	 * Retornamos el catalogo de productos completo, o nulo si no hay productos
